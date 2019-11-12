@@ -1,3 +1,7 @@
 body {
-    background:  -webkit-linear-gradient(left, #6a11cb, #2575fc);
+    background: -webkit-linear-gradient(left, #6a11cb, #2575fc);
+}
+
+h2 {
+    border-bottom: 1px solid #999;
 }
