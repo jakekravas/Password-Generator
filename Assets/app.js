@@ -25,3 +25,10 @@ function getRandomSpecial(){
     let randSpecial = Math.floor(Math.random() * 14) + 33;
     return String.fromCharCode(randSpecial);
 }
+
+// SETUP GENERATE BUTTON EVENT LISTENER
+document.querySelector("#btn-generate").addEventListener("click" , generatePassword);
+
+function generatePassword(e){
+    
+}
