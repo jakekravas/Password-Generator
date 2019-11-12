@@ -45,7 +45,11 @@ function generatePassword(e){
             trueBoxes.push(i);
         }
     }
-    console.log(trueBoxes);
+
+    // WHEN NO BOXES ARE CHECKED
+    if (trueBoxes.length === 0) {
+        alert("Please check at least one box");
+    }
 
     e.preventDefault();
 }
