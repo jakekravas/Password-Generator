@@ -11,30 +11,38 @@
 </head>
 <body>
     <div class="container">
-        <form>
-            <h1>Password Generator</h1>
-            <div class="form-group">
-                <label>Password length:</label>
-                <input id="pwLength" type="number" min="8" max="128" value="8">
+        <div class="row justify-content-center mt-5">
+            <div class="col-xs-4">
+                <div class="card card-form">
+                    <div class="card-body">
+                        <form>
+                            <h2>Password Generator</h2>
+                            <div class="form-group justify-content-between d-flex">
+                                <label>Password length:</label>
+                                <input id="pwLength" type="number" min="8" max="128" value="8">
+                            </div>
+                            <div class="form-group justify-content-between d-flex">
+                                <label>Includes Lowercase Letters:</label>
+                                <input type="checkbox" id="lowerCheck">
+                            </div>
+                            <div class="form-group justify-content-between d-flex">
+                                <label>Include Uppecase Letters:</label>
+                                <input type="checkbox" id="upperCheck">
+                            </div>
+                            <div class="form-group justify-content-between d-flex">
+                                <label>Includes Numbers:</label>
+                                <input type="checkbox" id="numberCheck">
+                            </div>
+                            <div class="form-group justify-content-between d-flex">
+                                <label>Includes Special Characters:</label>
+                                <input type="checkbox" id="specialCheck">
+                            </div>
+                            <button id="btn-generate" class="btn btn-primary btn-block" type="submit">Generate</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Includes Lowercase Letters:</label>
-                <input type="checkbox" id="lowerCheck">
-            </div>
-            <div class="form-group">
-                <label>Include Uppecase Letters:</label>
-                <input type="checkbox" id="upperCheck">
-            </div>
-            <div class="form-group">
-                <label>Includes Numbers:</label>
-                <input type="checkbox" id="numberCheck">
-            </div>
-            <div class="form-group">
-                <label>Includes Special Characters:</label>
-                <input type="checkbox" id="specialCheck">
-            </div>
-            <button id="btn-generate" type="submit">Generate</button>
-        </form>
+        </div>
     </div>
 
     <script src="Assets/app.js"></script>
