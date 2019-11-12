@@ -12,7 +12,7 @@
             <h2>Generated Password Options</h2>
             <div class="form-group">
                 <label>Length (must be between 8 and 128 characters):</label>
-                <input type="number">
+                <input class="length" type="number" min="8" max="128">
             </div>
             <h3>Character Options (must choose at least one)</h3>
             <div class="form-group">
@@ -33,5 +33,7 @@
             </div>
         </form>
     </div>
+
+    <script src="Assets/app.js"></script>
 </body>
 </html>
