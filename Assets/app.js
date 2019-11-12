@@ -38,5 +38,14 @@ function generatePassword(e){
     console.log(checkedArr);
     console.log(functArr);
 
+    // GETTING NUMBER AND INDEXES OF CHECKED BOXES
+    for (i = 0; i < checkedArr.length; i++){
+        // console.log(checkedArr[i]);
+        if (checkedArr[i] === true) {
+            trueBoxes.push(i);
+        }
+    }
+    console.log(trueBoxes);
+
     e.preventDefault();
 }
