@@ -109,7 +109,10 @@ function generatePassword(e){
     document.querySelector("#finalPassword").value = finalPassword; // Displaying password on page
 
     // ENABLING OPTION TO COPY PASSWORD
-    document.querySelector("#copyButton").addEventListener("click" , copyPassword);
+    copyButton = document.querySelector("#copyButton");
+    copyButton.className = "btn btn-outline-secondary"; //Removing disabled class to make button brighter
+    document.querySelector("#copyButton").setAttribute("title" , "Copy to clipboard");
+    copyButton.addEventListener("click" , copyPassword);
 
     function copyPassword(e) {
         document.querySelector("#finalPassword").select(); //Selecting password text
