@@ -1,9 +1,9 @@
 // GETTING PASSWORD CRITERIA FROM USER
-let passwordLength = document.querySelector("#pwLength");
-let lowerChecked = document.querySelector("#lowerCheck");
-let upperChecked = document.querySelector("#upperCheck");
-let numberChecked = document.querySelector("#numberCheck");
-let specialChecked = document.querySelector("#specialCheck");
+let passwordLength = document.querySelector("#pwLength"); //Gets access to input tag with ID pwLength
+let lowerChecked = document.querySelector("#lowerCheck"); //Gets access to input tag with ID lowerCheck
+let upperChecked = document.querySelector("#upperCheck"); //Gets access to input tag with ID upperCheck
+let numberChecked = document.querySelector("#numberCheck"); //Gets access to input tag with ID numberCheck
+let specialChecked = document.querySelector("#specialCheck"); //Gets access to input tag with ID specialCheck
 
 // SETTING UP FUNCTIONS TO RANDOMLY GENERATE CHARACTER FOR EACH PIECE OF CRITERIA
 function getRandomLower(){ //Randomly generates and returns a lowercase character
@@ -16,7 +16,7 @@ function getRandomUpper(){ //Randomly generates and returns an uppercase charact
     return String.fromCharCode(randUpper);
 }
 
-function getRandomNumber(){ //Randomly generates and returns a number
+function getRandomNumber(){ //Randomly generates and returns a numeric character
     let randNumber = Math.floor(Math.random() * 10);
     return randNumber;
 }
@@ -29,12 +29,12 @@ function getRandomSpecial(){ //Randomly generates and returns a special characte
         }
         return arr;
     }
-    specialLoop(33 , 47 , specialArr); //Getting special characters from char numbers 33-47
-    specialLoop(58 , 64 , specialArr); //Getting special characters from char numbers 58-64
-    specialLoop(91 , 96 , specialArr); //Getting special characters from char numbers 91-96
-    specialLoop(123 , 126 , specialArr); //Getting special characters from char numbers 123-126
+    specialLoop(33 , 47 , specialArr); //Gets special characters from char numbers 33-47
+    specialLoop(58 , 64 , specialArr); //Gets special characters from char numbers 58-64
+    specialLoop(91 , 96 , specialArr); //Gets special characters from char numbers 91-96
+    specialLoop(123 , 126 , specialArr); //Gets special characters from char numbers 123-126
 
-    let randSpecial = specialArr[Math.floor(Math.random() * specialArr.length)]; //Random selection from specialArr
+    let randSpecial = specialArr[Math.floor(Math.random() * specialArr.length)]; //Randomly selects an element from specialArr
     return randSpecial;
 }
 
@@ -60,10 +60,10 @@ function generatePassword(e){
 
     // FUNCTIONS FOR MULTIPLE BOX SELECTIONS
 
-    //Taking care of password generation for when two boxes are selected
+    //Password generation function for when two boxes are checked
     function twoBoxesChecked(){
-        var firstFunctCount = 0; //Represents number of times first function is ran
-        var secondFunctCount = 0; //Represents number of times second function is ran
+        var firstFunctCount = 0; //Represents number of times first function has ran
+        var secondFunctCount = 0; //Represents number of times second function has ran
         for (var i = 0; i < passwordLength.value; i++){
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()]; //Redeclaring functArr so it doesn't give us the same character each iteration
             var randFunctSelect = Math.random(); //Random number between 0 and 1
@@ -78,14 +78,14 @@ function generatePassword(e){
         if (firstFunctCount === 0 || secondFunctCount === 0){
             pwArr = [];
             twoBoxesChecked();
-        } //Ensuring that at least one character from each checked checkbox is included in the password
+        } //Ensures that at least one character from each checked checkbox is included in the password
     };
 
-    //Taking care of password generation for when three boxes are selected
+    //Password generation function for when three boxes are checked
     function threeBoxesChecked(){
-        var firstFunctCount = 0; //Represents number of times first function is ran
-        var secondFunctCount = 0; //Represents number of times second function is ran
-        var thirdFunctCount = 0; //Represents number of times third function is ran
+        var firstFunctCount = 0; //Represents number of times first function has ran
+        var secondFunctCount = 0; //Represents number of times second function has ran
+        var thirdFunctCount = 0; //Represents number of times third function has ran
         for (var i = 0; i < passwordLength.value; i++){
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
             var randFunctSelect = Math.random();
@@ -103,15 +103,15 @@ function generatePassword(e){
         if (firstFunctCount === 0 || secondFunctCount === 0 || thirdFunctCount == 0){
             pwArr = [];
             threeBoxesChecked();
-        } //Ensuring that at least one character from each checked checkbox is included in the password
+        } //Ensures that at least one character from each checked checkbox is included in the password
     };
 
-    //Taking care of password generation for when four boxes are selected
+    //Password generation function for when all four boxes are checked
     function fourBoxesChecked(){
-        var firstFunctCount = 0; //Represents number of times first function is ran
-        var secondFunctCount = 0; //Represents number of times second function is ran
-        var thirdFunctCount = 0; //Represents number of times third function is ran
-        var fourthFunctCount = 0; //Represents number of times fourth function is ran
+        var firstFunctCount = 0; //Represents number of times first function has ran
+        var secondFunctCount = 0; //Represents number of times second function has ran
+        var thirdFunctCount = 0; //Represents number of times third function has ran
+        var fourthFunctCount = 0; //Represents number of times fourth function has ran
         for (var i = 0; i < passwordLength.value; i++){
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
             var randFunctSelect = Math.random();
@@ -132,7 +132,7 @@ function generatePassword(e){
         if (firstFunctCount === 0 || secondFunctCount === 0 || thirdFunctCount === 0 || fourthFunctCount === 0){
             pwArr = [];
             fourBoxesChecked();
-        } //Ensuring that at least one character from each checked checkbox is included in the password
+        } //Ensures that at least one character from each checked checkbox is included in the password
     };
 
 
@@ -140,11 +140,11 @@ function generatePassword(e){
     if (trueBoxes.length === 0) {
         noChecksAlert.className = "alert alert-danger text-center py-1"; //Shows alert to user
         copyButton.className = "btn btn-outline-secondary disabled"; //Sets button to disabled
-        copyButton.setAttribute("title" , ""); //Hides tooltip for clipboard button
+        copyButton.setAttribute("title" , ""); //Hides tooltip for copy button
     } else {
         noChecksAlert.className = "d-none"; //Sets alert to display:none
-        copyButton.className = "btn btn-outline-secondary"; //Enables button
-        copyButton.setAttribute("title" , "Copy to clipboard"); //Shows tooltip for clipboard button
+        copyButton.className = "btn btn-outline-secondary"; //Enables copy button
+        copyButton.setAttribute("title" , "Copy to clipboard"); //Shows tooltip for copy button
     }
 
     // IF 1 BOX IS CHECKED
@@ -168,17 +168,17 @@ function generatePassword(e){
     }
 
     // OUTPUTTING PASSWORD TO PAGE
-    finalPassword = pwArr.join(""); //Converting password array (pwArr) into a string
-    document.querySelector("#finalPassword").value = finalPassword; //Displaying password to page
+    finalPassword = pwArr.join(""); //Converts password array (pwArr) into a string
+    document.querySelector("#finalPassword").value = finalPassword; //Displays password to page
 
     // ENABLING OPTION TO COPY PASSWORD
-    copyButton.addEventListener("click" , copyPassword); //Setting up event listener for when copy (clipboard icon) button is clicked
+    copyButton.addEventListener("click" , copyPassword); //Sets up event listener for when copy (clipboard icon) button is clicked
 
     function copyPassword(e) {
-        document.querySelector("#finalPassword").select(); //Selecting password text
-        document.execCommand("Copy"); //Copying password text to clipboard
-        e.preventDefault(); //Preventing page refresh when copy button is clicked
+        document.querySelector("#finalPassword").select(); //Selects password text
+        document.execCommand("Copy"); //Copies password text to clipboard
+        e.preventDefault(); //Prevents page refresh when copy button is clicked
     }
 
-    e.preventDefault(); //Preventing page refresh when generate button is clicked
+    e.preventDefault(); //Prevents page refresh when Generate button is clicked
 };
