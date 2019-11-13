@@ -1,4 +1,4 @@
-// GET PASSWORD CRITERIA FROM USER
+// GETTING PASSWORD CRITERIA FROM USER
 let passwordLength = document.querySelector("#pwLength");
 let lowerChecked = document.querySelector("#lowerCheck");
 let upperChecked = document.querySelector("#upperCheck");
@@ -48,11 +48,8 @@ function generatePassword(e){
     let checkedArr = [lowerChecked.checked , upperChecked.checked , numberChecked.checked , specialChecked.checked]; //Array to log true/false boolean elements into so we know which boxes are checked
     let trueBoxes = []; //all true elements from checkedArr will be pushed into here with their checkedArr index as their value so we know which boxes to act upon
     let functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()]; //Uses values of trueBoxes to know which functions to run
-    // let copyButton = document.querySelector("#copyButton");
     let noChecksAlert = document.querySelector("#noChecksAlert");
     let copyButton = document.querySelector("#copyButton");
-    console.log(checkedArr);
-    console.log(functArr);
 
     // GETTING INDEXES OF CHECKED BOXES
     for (i = 0; i < checkedArr.length; i++){
@@ -152,7 +149,6 @@ function generatePassword(e){
 
     // IF 1 BOX IS CHECKED
     if (trueBoxes.length === 1) {
-        console.log(functArr[trueBoxes[0]]);
         for (var i = 0; i < passwordLength.value; i++){
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()]; // Redeclaring functArr so it doesn't give us the same character for each iteration
             pwArr.push(functArr[trueBoxes[0]])
