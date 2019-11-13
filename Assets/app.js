@@ -56,7 +56,7 @@ function generatePassword(e){
     if (trueBoxes.length === 1) {
         console.log(functArr[trueBoxes[0]]);
         for (var i = 0; i < passwordLength.value; i++){
-            functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()]; // Re-declaring functArr so it doesn't give us the same character for each iteration
+            functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()]; // Redeclaring functArr so it doesn't give us the same character for each iteration
             pwArr.push(functArr[trueBoxes[0]])
             console.log(pwArr);
         }
@@ -114,8 +114,8 @@ function generatePassword(e){
     function copyPassword(e) {
         document.querySelector("#finalPassword").select(); //Selecting password text
         document.execCommand("Copy"); //Copying password text to clipboard
-        e.preventDefault(); //Preventing page refresh
+        e.preventDefault(); //Preventing page refresh when copy button is clicked
     }
 
-    e.preventDefault(); //Preventing page refresh
+    e.preventDefault(); //Preventing page refresh when generate button is clicked
 };
