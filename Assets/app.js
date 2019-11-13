@@ -51,5 +51,15 @@ function generatePassword(e){
         alert("Please check at least one box");
     }
 
+    // WHEN 1 BOX IS CHECKED
+    if (trueBoxes.length === 1) {
+        console.log(functArr[trueBoxes[0]]);
+        for (var i = 0; i < passwordLength.value; i++){
+            functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()]; // Re-declaring functArr so it doesn't give us the same character for each iteration
+            pwArr.push(functArr[trueBoxes[0]])
+            console.log(pwArr);
+        }
+
     e.preventDefault();
+    }
 }
