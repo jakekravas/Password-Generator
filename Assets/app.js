@@ -27,7 +27,7 @@ function getRandomSpecial(){ //Randomly generates and returns a special characte
 }
 
 // SETTING UP EVENT LISTENER FOR GENERATE BUTTON
-document.querySelector("#btn-generate").addEventListener("click" , generatePassword);
+document.querySelector("#btn-generate").addEventListener("click" , generatePassword); //Setting up event listener for when Generate button is clicked
 
 function generatePassword(e){
     
@@ -45,7 +45,6 @@ function generatePassword(e){
             trueBoxes.push(i);
         }
     }
-
 
     // FUNCTIONS FOR MULTIPLE BOX SELECTIONS
 
@@ -95,7 +94,7 @@ function generatePassword(e){
         } //Ensuring that at least one character from each checked checkbox is included in the password
     };
 
-    //Takes care of password generation for when four boxes are selected
+    //Taking care of password generation for when four boxes are selected
     function fourBoxesChecked(){
         var firstFunctCount = 0; //Represents number of times first function is ran
         var secondFunctCount = 0; //Represents number of times second function is ran
@@ -127,7 +126,9 @@ function generatePassword(e){
 
     // IF NO BOXES ARE CHECKED
     if (trueBoxes.length === 0) {
-        alert("Please check at least one box");
+        document.querySelector("#noChecksAlert").className = "alert alert-danger text-center py-1"; //Alerts user to select at least one checkbox
+    } else {
+        document.querySelector("#noChecksAlert").className = "d-none"; //Gets rid of alert once user selects checkbox and clicks the Generate button
     }
 
     // IF 1 BOX IS CHECKED
@@ -159,7 +160,7 @@ function generatePassword(e){
     copyButton = document.querySelector("#copyButton");
     copyButton.className = "btn btn-outline-secondary"; //Removing disabled class to make button brighter
     document.querySelector("#copyButton").setAttribute("title" , "Copy to clipboard"); //Showing tooltip for clipboard button
-    copyButton.addEventListener("click" , copyPassword);
+    copyButton.addEventListener("click" , copyPassword); //Setting up event listener for when copy (clipboard icon) button is clicked
 
     function copyPassword(e) {
         document.querySelector("#finalPassword").select(); //Selecting password text
