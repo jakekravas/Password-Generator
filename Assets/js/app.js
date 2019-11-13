@@ -58,81 +58,81 @@ function generatePassword(e){
         }
     }
 
-    // FUNCTIONS FOR MULTIPLE BOX SELECTIONS
+    // FUNCTIONS FOR WHEN MULTIPLE BOXES ARE CHECKED
 
     //Password generation function for when two boxes are checked
     function twoBoxesChecked(){
-        var firstFunctCount = 0; //Represents number of times first function has ran
-        var secondFunctCount = 0; //Represents number of times second function has ran
+        var firstFunctCount = 0; //Number of times first function has ran
+        var secondFunctCount = 0; //Number of times second function has ran
         for (var i = 0; i < passwordLength.value; i++){
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()]; //Redeclaring functArr so it doesn't give us the same character each iteration
             var randFunctSelect = Math.random(); //Random number between 0 and 1
             if (randFunctSelect <= 0.5) { 
-                pwArr.push(functArr[trueBoxes[0]]); //Runs function that randomly generates a character appropriate to the criteria of the first checked checkbox
+                pwArr.push(functArr[trueBoxes[0]]); //Runs function that randomly generates a character appropriate to the first checked checkbox
                 firstFunctCount++;
             } else {
-                pwArr.push(functArr[trueBoxes[1]]); //Runs function that randomly generates a character appropriate to the criteria of the second checked checkbox
+                pwArr.push(functArr[trueBoxes[1]]); //Runs function that randomly generates a character appropriate to the second checked checkbox
                 secondFunctCount++;
             }
         }
         if (firstFunctCount === 0 || secondFunctCount === 0){
             pwArr = [];
             twoBoxesChecked();
-        } //Ensures that at least one character from each checked checkbox is included in the password
+        } //If pwArr doesn't include at least one character for each checked checkbox, the function runs again
     };
 
     //Password generation function for when three boxes are checked
     function threeBoxesChecked(){
-        var firstFunctCount = 0; //Represents number of times first function has ran
-        var secondFunctCount = 0; //Represents number of times second function has ran
-        var thirdFunctCount = 0; //Represents number of times third function has ran
+        var firstFunctCount = 0; //Number of times first function has ran
+        var secondFunctCount = 0; //Number of times second function has ran
+        var thirdFunctCount = 0; //Number of times third function has ran
         for (var i = 0; i < passwordLength.value; i++){
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
             var randFunctSelect = Math.random();
             if (randFunctSelect <= 0.33333) {
-                pwArr.push(functArr[trueBoxes[0]]); //Runs function that randomly generates a character appropriate to the criteria of the first checked checkbox
+                pwArr.push(functArr[trueBoxes[0]]); //Runs function that randomly generates a character appropriate to the first checked checkbox
                 firstFunctCount++;
             } else if (randFunctSelect > 0.33333 && randFunctSelect < 0.66666) {
-                pwArr.push(functArr[trueBoxes[1]]); //Runs function that randomly generates a character appropriate to the criteria of the second checked checkbox
+                pwArr.push(functArr[trueBoxes[1]]); //Runs function that randomly generates a character appropriate to the second checked checkbox
                 secondFunctCount++;
             } else {
-                pwArr.push(functArr[trueBoxes[2]]); //Runs function that randomly generates a character appropriate to the criteria of the third checked checkbox
+                pwArr.push(functArr[trueBoxes[2]]); //Runs function that randomly generates a character appropriate to the third checked checkbox
                 thirdFunctCount++;
             }
         }
         if (firstFunctCount === 0 || secondFunctCount === 0 || thirdFunctCount == 0){
             pwArr = [];
             threeBoxesChecked();
-        } //Ensures that at least one character from each checked checkbox is included in the password
+        } //If pwArr doesn't include at least one character for each checked checkbox, the function runs again
     };
 
     //Password generation function for when all four boxes are checked
     function fourBoxesChecked(){
-        var firstFunctCount = 0; //Represents number of times first function has ran
-        var secondFunctCount = 0; //Represents number of times second function has ran
-        var thirdFunctCount = 0; //Represents number of times third function has ran
-        var fourthFunctCount = 0; //Represents number of times fourth function has ran
+        var firstFunctCount = 0; //Number of times first function has ran
+        var secondFunctCount = 0; //Number of times second function has ran
+        var thirdFunctCount = 0; //Number of times third function has ran
+        var fourthFunctCount = 0; //Number of times fourth function has ran
         for (var i = 0; i < passwordLength.value; i++){
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
             var randFunctSelect = Math.random();
             if (randFunctSelect <= 0.25) {
-                pwArr.push(functArr[trueBoxes[0]]); //Runs function that randomly generates a character appropriate to the criteria of the first checked checkbox
+                pwArr.push(functArr[trueBoxes[0]]); //Runs function that randomly generates a character appropriate to the first checked checkbox
                 firstFunctCount++;
             } else if (randFunctSelect > 0.25 && randFunctSelect <= 0.5) {
-                pwArr.push(functArr[trueBoxes[1]]); //Runs function that randomly generates a character appropriate to the criteria of the second checked checkbox
+                pwArr.push(functArr[trueBoxes[1]]); //Runs function that randomly generates a character appropriate to the second checked checkbox
                 secondFunctCount++;
             } else if (randFunctSelect > 0.5 && randFunctSelect <= 0.75) {
-                pwArr.push(functArr[trueBoxes[2]]); //Runs function that randomly generates a character appropriate to the criteria of the third checked checkbox
+                pwArr.push(functArr[trueBoxes[2]]); //Runs function that randomly generates a character appropriate to the third checked checkbox
                 thirdFunctCount++;
             } else {
-                pwArr.push(functArr[trueBoxes[3]]); //Runs function that randomly generates a character appropriate to the criteria of the fourth checked checkbox
+                pwArr.push(functArr[trueBoxes[3]]); //Runs function that randomly generates a character appropriate to the fourth checked checkbox
                 fourthFunctCount++;
             }
         }
         if (firstFunctCount === 0 || secondFunctCount === 0 || thirdFunctCount === 0 || fourthFunctCount === 0){
             pwArr = [];
             fourBoxesChecked();
-        } //Ensures that at least one character from each checked checkbox is included in the password
+        } //If pwArr doesn't include at least one character for each checked checkbox, the function runs again
     };
 
 
