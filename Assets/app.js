@@ -36,6 +36,9 @@ function generatePassword(e){
     let checkedArr = [lowerChecked.checked , upperChecked.checked , numberChecked.checked , specialChecked.checked]; //Array to log true/false boolean elements into so we know which boxes are checked
     let trueBoxes = []; //all true elements from checkedArr will be pushed into here with their checkedArr index as their value so we know which boxes to act upon
     let functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()]; //Uses values of trueBoxes to know which functions to run
+    // let copyButton = document.querySelector("#copyButton");
+    let noChecksAlert = document.querySelector("#noChecksAlert");
+    let copyButton = document.querySelector("#copyButton");
     console.log(checkedArr);
     console.log(functArr);
 
@@ -126,9 +129,13 @@ function generatePassword(e){
 
     // IF NO BOXES ARE CHECKED
     if (trueBoxes.length === 0) {
-        document.querySelector("#noChecksAlert").className = "alert alert-danger text-center py-1"; //Alerts user to select at least one checkbox
+        noChecksAlert.className = "alert alert-danger text-center py-1"; //Alerts user to select at least one checkbox
+        copyButton.className = "btn btn-outline-secondary disabled"; //Sets button to disabled
+        copyButton.setAttribute("title" , ""); //Hides tooltip for clipboard button
     } else {
-        document.querySelector("#noChecksAlert").className = "d-none"; //Gets rid of alert once user selects checkbox and clicks the Generate button
+        noChecksAlert.className = "d-none"; //Sets alert to display:none
+        copyButton.className = "btn btn-outline-secondary"; //Enables button
+        copyButton.setAttribute("title" , "Copy to clipboard"); //Shows tooltip for clipboard button
     }
 
     // IF 1 BOX IS CHECKED
@@ -157,9 +164,6 @@ function generatePassword(e){
     document.querySelector("#finalPassword").value = finalPassword; //Displaying password to page
 
     // ENABLING OPTION TO COPY PASSWORD
-    copyButton = document.querySelector("#copyButton");
-    copyButton.className = "btn btn-outline-secondary"; //Removing disabled class to make button brighter
-    document.querySelector("#copyButton").setAttribute("title" , "Copy to clipboard"); //Showing tooltip for clipboard button
     copyButton.addEventListener("click" , copyPassword); //Setting up event listener for when copy (clipboard icon) button is clicked
 
     function copyPassword(e) {
