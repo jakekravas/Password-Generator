@@ -129,7 +129,7 @@ function generatePassword(e){
 
     // IF NO BOXES ARE CHECKED
     if (trueBoxes.length === 0) {
-        noChecksAlert.className = "alert alert-danger text-center py-1"; //Alerts user to select at least one checkbox
+        noChecksAlert.className = "alert alert-danger text-center py-1"; //Shows alert to user
         copyButton.className = "btn btn-outline-secondary disabled"; //Sets button to disabled
         copyButton.setAttribute("title" , ""); //Hides tooltip for clipboard button
     } else {
