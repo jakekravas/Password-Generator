@@ -72,6 +72,19 @@ function generatePassword(e){
                 pwArr.push(functArr[trueBoxes[1]]);
             }
         }
+    } else if (trueBoxes.length === 3) {
+        for (var i = 0; i < passwordLength.value; i++) {
+            functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
+            var randFunctSelect = Math.random();
+            console.log(randFunctSelect);
+            if (randFunctSelect <= 0.33333) {
+                pwArr.push(functArr[trueBoxes[0]]);
+            } else if (randFunctSelect > 0.33333 && randFunctSelect < 0.66666) {
+                pwArr.push(functArr[trueBoxes[1]]);
+            } else {
+                pwArr.push(functArr[trueBoxes[2]]);
+            }
+        }
     }
 
     finalPassword = pwArr.join("");
