@@ -5,7 +5,7 @@ let upperChecked = document.querySelector("#upperCheck");
 let numberChecked = document.querySelector("#numberCheck");
 let specialChecked = document.querySelector("#specialCheck");
 
-// SETUP FUNCTIONS TO RANDOMLY GENERATE CHARACTER FOR EACH PIECE OF CRITERIA
+// SETTING UP FUNCTIONS TO RANDOMLY GENERATE CHARACTER FOR EACH PIECE OF CRITERIA
 function getRandomLower(){ //Randomly generates and returns a lowercase character
     let randLower = Math.floor(Math.random() * 26) + 97;
     return String.fromCharCode(randLower);
@@ -22,8 +22,20 @@ function getRandomNumber(){ //Randomly generates and returns a number
 }
 
 function getRandomSpecial(){ //Randomly generates and returns a special character
-    let randSpecial = Math.floor(Math.random() * 14) + 33;
-    return String.fromCharCode(randSpecial);
+    specialArr = []; //Array to loop special characters into
+    function specialLoop(startPoint , endPoint , arr){
+        for (var i = startPoint; i <= endPoint; i++){
+            arr.push(String.fromCharCode(i)) //Appends character into array
+        }
+        return arr;
+    }
+    specialLoop(33 , 47 , specialArr); //Getting special characters from char numbers 33-47
+    specialLoop(58 , 64 , specialArr); //Getting special characters from char numbers 58-64
+    specialLoop(91 , 96 , specialArr); //Getting special characters from char numbers 91-96
+    specialLoop(123 , 126 , specialArr); //Getting special characters from char numbers 123-126
+
+    let randSpecial = specialArr[Math.floor(Math.random() * specialArr.length)]; //Random selection from specialArr
+    return randSpecial;
 }
 
 // SETTING UP EVENT LISTENER FOR GENERATE BUTTON
