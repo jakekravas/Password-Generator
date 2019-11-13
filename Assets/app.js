@@ -107,5 +107,6 @@ function generatePassword(e){
     // OUTPUTTING PASSWORD TO PAGE
     finalPassword = pwArr.join(""); // Converting password array into a string
     document.querySelector("#finalPassword").value = finalPassword; // Displaying password on page
+    
     e.preventDefault();
 }
