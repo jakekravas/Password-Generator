@@ -47,6 +47,103 @@ function generatePassword(e){
         }
     }
 
+
+    // FUNCTIONS FOR MULTIPLE BOX SELECTIONS
+
+    //Takes care of password generation for when two boxes are selected
+    function twoBoxesChecked(){
+        var firstFunctCount = 0;
+        var secondFunctCount = 0;
+        for (var i = 0; i < passwordLength.value; i++){
+            functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
+            var randFunctSelect = Math.random();
+            console.log(randFunctSelect);
+            if (randFunctSelect <= 0.5) {
+                pwArr.push(functArr[trueBoxes[0]]);
+                firstFunctCount++;
+            } else {
+                pwArr.push(functArr[trueBoxes[1]]);
+                secondFunctCount++;
+            }
+            console.log(pwArr);
+        }
+        console.log("firstFunctCount " + firstFunctCount);
+        console.log("secondFunctCount " + secondFunctCount);
+        if (firstFunctCount === 0 || secondFunctCount === 0){
+            pwArr = [];
+            console.log(pwArr);
+            twoBoxesChecked();
+        }
+    };
+
+    //Takes care of password generation for when three boxes are selected
+    function threeBoxesChecked(){
+        var firstFunctCount = 0;
+        var secondFunctCount = 0;
+        var thirdFunctCount = 0;
+        for (var i = 0; i < passwordLength.value; i++){
+            functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
+            var randFunctSelect = Math.random();
+            console.log(randFunctSelect);
+            if (randFunctSelect <= 0.33333) {
+                pwArr.push(functArr[trueBoxes[0]]);
+                firstFunctCount++;
+            } else if (randFunctSelect > 0.33333 && randFunctSelect < 0.66666) {
+                pwArr.push(functArr[trueBoxes[1]]);
+                secondFunctCount++;
+            } else {
+                pwArr.push(functArr[trueBoxes[2]]);
+                thirdFunctCount++;
+            }
+            console.log(pwArr);
+        }
+        console.log("firstFunctCount " + firstFunctCount);
+        console.log("secondFunctCount " + secondFunctCount);
+        console.log("thirdFunctCount " + thirdFunctCount);
+        if (firstFunctCount === 0 || secondFunctCount === 0 || thirdFunctCount == 0){
+            pwArr = [];
+            console.log(pwArr);
+            threeBoxesChecked();
+        }
+    };
+
+    //Takes care of password generation for when four boxes are selected
+    function fourBoxesChecked(){
+        var firstFunctCount = 0;
+        var secondFunctCount = 0;
+        var thirdFunctCount = 0;
+        var fourthFunctCount = 0;
+        for (var i = 0; i < passwordLength.value; i++){
+            functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
+            var randFunctSelect = Math.random();
+            console.log(randFunctSelect);
+            if (randFunctSelect <= 0.25) {
+                pwArr.push(functArr[trueBoxes[0]]);
+                firstFunctCount++;
+            } else if (randFunctSelect > 0.25 && randFunctSelect <= 0.5) {
+                pwArr.push(functArr[trueBoxes[1]]);
+                secondFunctCount++;
+            } else if (randFunctSelect > 0.5 && randFunctSelect <= 0.75) {
+                pwArr.push(functArr[trueBoxes[2]]);
+                thirdFunctCount++;
+            } else {
+                pwArr.push(functArr[trueBoxes[3]]);
+                fourthFunctCount++;
+            }
+            console.log(pwArr);
+        }
+        console.log("firstFunctCount " + firstFunctCount);
+        console.log("secondFunctCount " + secondFunctCount);
+        console.log("thirdFunctCount " + thirdFunctCount);
+        console.log("fourthFunctCount " + fourthFunctCount);
+        if (firstFunctCount === 0 || secondFunctCount === 0 || thirdFunctCount === 0 || fourthFunctCount === 0){
+            pwArr = [];
+            console.log(pwArr);
+            fourBoxesChecked();
+        }
+    };
+
+
     // IF NO BOXES ARE CHECKED
     if (trueBoxes.length === 0) {
         alert("Please check at least one box");
@@ -60,48 +157,18 @@ function generatePassword(e){
             pwArr.push(functArr[trueBoxes[0]])
             console.log(pwArr);
         }
+
     // IF 2 BOXES ARE CHECKED
     } else if (trueBoxes.length === 2) {
-        for (var i = 0; i < passwordLength.value; i++){
-            functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
-            var randFunctSelect = Math.random();
-            console.log(randFunctSelect);
-            if (randFunctSelect <= 0.5) {
-                pwArr.push(functArr[trueBoxes[0]]);
-            } else {
-                pwArr.push(functArr[trueBoxes[1]]);
-            }
-        }
+        twoBoxesChecked();
+
     // IF 3 BOXES ARE CHECKED
     } else if (trueBoxes.length === 3) {
-        for (var i = 0; i < passwordLength.value; i++) {
-            functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
-            var randFunctSelect = Math.random();
-            console.log(randFunctSelect);
-            if (randFunctSelect <= 0.33333) {
-                pwArr.push(functArr[trueBoxes[0]]);
-            } else if (randFunctSelect > 0.33333 && randFunctSelect < 0.66666) {
-                pwArr.push(functArr[trueBoxes[1]]);
-            } else {
-                pwArr.push(functArr[trueBoxes[2]]);
-            }
-        }
+        threeBoxesChecked();
+
     // IF ALL 4 BOXES ARE CHECKED
     } else {
-        for (var i = 0; i < passwordLength.value; i++) {
-            functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
-            var randFunctSelect = Math.random();
-            console.log(randFunctSelect);
-            if (randFunctSelect <= 0.25) {
-                pwArr.push(functArr[trueBoxes[0]]);
-            } else if (randFunctSelect > 0.25 && randFunctSelect <= 0.5) {
-                pwArr.push(functArr[trueBoxes[1]]);
-            } else if (randFunctSelect > 0.5 && randFunctSelect <= 0.75) {
-                pwArr.push(functArr[trueBoxes[2]]);
-            } else {
-                pwArr.push(functArr[trueBoxes[3]]);
-            }
-        }
+        fourBoxesChecked();
     }
 
     // OUTPUTTING PASSWORD TO PAGE
@@ -111,7 +178,7 @@ function generatePassword(e){
     // ENABLING OPTION TO COPY PASSWORD
     copyButton = document.querySelector("#copyButton");
     copyButton.className = "btn btn-outline-secondary"; //Removing disabled class to make button brighter
-    document.querySelector("#copyButton").setAttribute("title" , "Copy to clipboard");
+    document.querySelector("#copyButton").setAttribute("title" , "Copy to clipboard"); //Showing tooltip on clipboard button
     copyButton.addEventListener("click" , copyPassword);
 
     function copyPassword(e) {
