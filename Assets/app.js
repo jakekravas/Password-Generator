@@ -32,6 +32,7 @@ document.querySelector("#btn-generate").addEventListener("click" , generatePassw
 function generatePassword(e){
     
     let pwArr = []; // Declaring password array to loop into
+    let finalPassword;
     let checkedArr = [lowerChecked.checked , upperChecked.checked , numberChecked.checked , specialChecked.checked];
     let trueBoxes = [];
     let functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
@@ -59,7 +60,10 @@ function generatePassword(e){
             pwArr.push(functArr[trueBoxes[0]])
             console.log(pwArr);
         }
+    }
+
+    finalPassword = pwArr.join("");
+    document.querySelector("#finalPassword").placeholder = finalPassword;
 
     e.preventDefault();
-    }
 }
