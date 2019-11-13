@@ -107,6 +107,15 @@ function generatePassword(e){
     // OUTPUTTING PASSWORD TO PAGE
     finalPassword = pwArr.join(""); // Converting password array into a string
     document.querySelector("#finalPassword").value = finalPassword; // Displaying password on page
-    
-    e.preventDefault();
-}
+
+    // ENABLING OPTION TO COPY PASSWORD
+    document.querySelector("#copyButton").addEventListener("click" , copyPassword);
+
+    function copyPassword(e) {
+        document.querySelector("#finalPassword").select(); //Selecting password text
+        document.execCommand("Copy"); //Copying password text to clipboard
+        e.preventDefault(); //Preventing page refresh
+    }
+
+    e.preventDefault(); //Preventing page refresh
+};
