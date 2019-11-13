@@ -5,41 +5,41 @@ let upperChecked = document.querySelector("#upperCheck");
 let numberChecked = document.querySelector("#numberCheck");
 let specialChecked = document.querySelector("#specialCheck");
 
-// SETUP FUNCTIONS FOR EACH PIECE OF CRITERIA
-function getRandomLower() {
+// SETUP FUNCTIONS TO RANDOMLY GENERATE CHARACTER FOR EACH PIECE OF CRITERIA
+function getRandomLower(){ //Randomly generates and returns a lowercase character
     let randLower = Math.floor(Math.random() * 26) + 97;
     return String.fromCharCode(randLower);
 }
 
-function getRandomUpper(){
+function getRandomUpper(){ //Randomly generates and returns an uppercase character
     let randUpper = Math.floor(Math.random() * 26) + 65;
     return String.fromCharCode(randUpper);
 }
 
-function getRandomNumber(){
+function getRandomNumber(){ //Randomly generates and returns a number
     let randNumber = Math.floor(Math.random() * 10);
     return randNumber;
 }
 
-function getRandomSpecial(){
+function getRandomSpecial(){ //Randomly generates and returns a special character
     let randSpecial = Math.floor(Math.random() * 14) + 33;
     return String.fromCharCode(randSpecial);
 }
 
-// SETUP GENERATE BUTTON EVENT LISTENER
+// SETTING UP EVENT LISTENER FOR GENERATE BUTTON
 document.querySelector("#btn-generate").addEventListener("click" , generatePassword);
 
 function generatePassword(e){
     
-    let pwArr = []; // Declaring password array to loop into
-    let finalPassword;
-    let checkedArr = [lowerChecked.checked , upperChecked.checked , numberChecked.checked , specialChecked.checked];
-    let trueBoxes = [];
-    let functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
+    let pwArr = []; //Array to loop each randomly generated password character into
+    let finalPassword; //Will later be a string version of pwArr
+    let checkedArr = [lowerChecked.checked , upperChecked.checked , numberChecked.checked , specialChecked.checked]; //Array to log true/false boolean elements into so we know which boxes are checked
+    let trueBoxes = []; //all true elements from checkedArr will be pushed into here with their checkedArr index as their value so we know which boxes to act upon
+    let functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()]; //Uses values of trueBoxes to know which functions to run
     console.log(checkedArr);
     console.log(functArr);
 
-    // GETTING NUMBER AND INDEXES OF CHECKED BOXES
+    // GETTING INDEXES OF CHECKED BOXES
     for (i = 0; i < checkedArr.length; i++){
         // console.log(checkedArr[i]);
         if (checkedArr[i] === true) {
@@ -47,12 +47,12 @@ function generatePassword(e){
         }
     }
 
-    // WHEN NO BOXES ARE CHECKED
+    // IF NO BOXES ARE CHECKED
     if (trueBoxes.length === 0) {
         alert("Please check at least one box");
     }
 
-    // WHEN 1 BOX IS CHECKED
+    // IF 1 BOX IS CHECKED
     if (trueBoxes.length === 1) {
         console.log(functArr[trueBoxes[0]]);
         for (var i = 0; i < passwordLength.value; i++){
@@ -60,7 +60,7 @@ function generatePassword(e){
             pwArr.push(functArr[trueBoxes[0]])
             console.log(pwArr);
         }
-    // WHEN 2 BOXES ARE CHECKED
+    // IF 2 BOXES ARE CHECKED
     } else if (trueBoxes.length === 2) {
         for (var i = 0; i < passwordLength.value; i++){
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
@@ -72,7 +72,7 @@ function generatePassword(e){
                 pwArr.push(functArr[trueBoxes[1]]);
             }
         }
-    // WHEN 3 BOXES ARE CHECKED
+    // IF 3 BOXES ARE CHECKED
     } else if (trueBoxes.length === 3) {
         for (var i = 0; i < passwordLength.value; i++) {
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
@@ -86,7 +86,7 @@ function generatePassword(e){
                 pwArr.push(functArr[trueBoxes[2]]);
             }
         }
-    // WHEN ALL 4 BOXES ARE CHECKED
+    // IF ALL 4 BOXES ARE CHECKED
     } else {
         for (var i = 0; i < passwordLength.value; i++) {
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
@@ -105,7 +105,7 @@ function generatePassword(e){
     }
 
     // OUTPUTTING PASSWORD TO PAGE
-    finalPassword = pwArr.join(""); // Converting password array into a string
+    finalPassword = pwArr.join(""); // Converting password array (pwArr) into a string
     document.querySelector("#finalPassword").value = finalPassword; // Displaying password on page
 
     // ENABLING OPTION TO COPY PASSWORD
