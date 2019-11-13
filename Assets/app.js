@@ -41,7 +41,6 @@ function generatePassword(e){
 
     // GETTING INDEXES OF CHECKED BOXES
     for (i = 0; i < checkedArr.length; i++){
-        // console.log(checkedArr[i]);
         if (checkedArr[i] === true) {
             trueBoxes.push(i);
         }
@@ -50,97 +49,79 @@ function generatePassword(e){
 
     // FUNCTIONS FOR MULTIPLE BOX SELECTIONS
 
-    //Takes care of password generation for when two boxes are selected
+    //Taking care of password generation for when two boxes are selected
     function twoBoxesChecked(){
-        var firstFunctCount = 0;
-        var secondFunctCount = 0;
+        var firstFunctCount = 0; //Represents number of times first function is ran
+        var secondFunctCount = 0; //Represents number of times second function is ran
         for (var i = 0; i < passwordLength.value; i++){
-            functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
-            var randFunctSelect = Math.random();
-            console.log(randFunctSelect);
-            if (randFunctSelect <= 0.5) {
-                pwArr.push(functArr[trueBoxes[0]]);
+            functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()]; //Redeclaring functArr so it doesn't give us the same character each iteration
+            var randFunctSelect = Math.random(); //Random number between 0 and 1
+            if (randFunctSelect <= 0.5) { 
+                pwArr.push(functArr[trueBoxes[0]]); //Runs function that randomly generates a character appropriate to the criteria of the first checked checkbox
                 firstFunctCount++;
             } else {
-                pwArr.push(functArr[trueBoxes[1]]);
+                pwArr.push(functArr[trueBoxes[1]]); //Runs function that randomly generates a character appropriate to the criteria of the second checked checkbox
                 secondFunctCount++;
             }
-            console.log(pwArr);
         }
-        console.log("firstFunctCount " + firstFunctCount);
-        console.log("secondFunctCount " + secondFunctCount);
         if (firstFunctCount === 0 || secondFunctCount === 0){
             pwArr = [];
-            console.log(pwArr);
             twoBoxesChecked();
-        }
+        } //Ensuring that at least one character from each checked checkbox is included in the password
     };
 
-    //Takes care of password generation for when three boxes are selected
+    //Taking care of password generation for when three boxes are selected
     function threeBoxesChecked(){
-        var firstFunctCount = 0;
-        var secondFunctCount = 0;
-        var thirdFunctCount = 0;
+        var firstFunctCount = 0; //Represents number of times first function is ran
+        var secondFunctCount = 0; //Represents number of times second function is ran
+        var thirdFunctCount = 0; //Represents number of times third function is ran
         for (var i = 0; i < passwordLength.value; i++){
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
             var randFunctSelect = Math.random();
-            console.log(randFunctSelect);
             if (randFunctSelect <= 0.33333) {
-                pwArr.push(functArr[trueBoxes[0]]);
+                pwArr.push(functArr[trueBoxes[0]]); //Runs function that randomly generates a character appropriate to the criteria of the first checked checkbox
                 firstFunctCount++;
             } else if (randFunctSelect > 0.33333 && randFunctSelect < 0.66666) {
-                pwArr.push(functArr[trueBoxes[1]]);
+                pwArr.push(functArr[trueBoxes[1]]); //Runs function that randomly generates a character appropriate to the criteria of the second checked checkbox
                 secondFunctCount++;
             } else {
-                pwArr.push(functArr[trueBoxes[2]]);
+                pwArr.push(functArr[trueBoxes[2]]); //Runs function that randomly generates a character appropriate to the criteria of the third checked checkbox
                 thirdFunctCount++;
             }
-            console.log(pwArr);
         }
-        console.log("firstFunctCount " + firstFunctCount);
-        console.log("secondFunctCount " + secondFunctCount);
-        console.log("thirdFunctCount " + thirdFunctCount);
         if (firstFunctCount === 0 || secondFunctCount === 0 || thirdFunctCount == 0){
             pwArr = [];
-            console.log(pwArr);
             threeBoxesChecked();
-        }
+        } //Ensuring that at least one character from each checked checkbox is included in the password
     };
 
     //Takes care of password generation for when four boxes are selected
     function fourBoxesChecked(){
-        var firstFunctCount = 0;
-        var secondFunctCount = 0;
-        var thirdFunctCount = 0;
-        var fourthFunctCount = 0;
+        var firstFunctCount = 0; //Represents number of times first function is ran
+        var secondFunctCount = 0; //Represents number of times second function is ran
+        var thirdFunctCount = 0; //Represents number of times third function is ran
+        var fourthFunctCount = 0; //Represents number of times fourth function is ran
         for (var i = 0; i < passwordLength.value; i++){
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
             var randFunctSelect = Math.random();
-            console.log(randFunctSelect);
             if (randFunctSelect <= 0.25) {
-                pwArr.push(functArr[trueBoxes[0]]);
+                pwArr.push(functArr[trueBoxes[0]]); //Runs function that randomly generates a character appropriate to the criteria of the first checked checkbox
                 firstFunctCount++;
             } else if (randFunctSelect > 0.25 && randFunctSelect <= 0.5) {
-                pwArr.push(functArr[trueBoxes[1]]);
+                pwArr.push(functArr[trueBoxes[1]]); //Runs function that randomly generates a character appropriate to the criteria of the second checked checkbox
                 secondFunctCount++;
             } else if (randFunctSelect > 0.5 && randFunctSelect <= 0.75) {
-                pwArr.push(functArr[trueBoxes[2]]);
+                pwArr.push(functArr[trueBoxes[2]]); //Runs function that randomly generates a character appropriate to the criteria of the third checked checkbox
                 thirdFunctCount++;
             } else {
-                pwArr.push(functArr[trueBoxes[3]]);
+                pwArr.push(functArr[trueBoxes[3]]); //Runs function that randomly generates a character appropriate to the criteria of the fourth checked checkbox
                 fourthFunctCount++;
             }
-            console.log(pwArr);
         }
-        console.log("firstFunctCount " + firstFunctCount);
-        console.log("secondFunctCount " + secondFunctCount);
-        console.log("thirdFunctCount " + thirdFunctCount);
-        console.log("fourthFunctCount " + fourthFunctCount);
         if (firstFunctCount === 0 || secondFunctCount === 0 || thirdFunctCount === 0 || fourthFunctCount === 0){
             pwArr = [];
-            console.log(pwArr);
             fourBoxesChecked();
-        }
+        } //Ensuring that at least one character from each checked checkbox is included in the password
     };
 
 
@@ -155,7 +136,6 @@ function generatePassword(e){
         for (var i = 0; i < passwordLength.value; i++){
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()]; // Redeclaring functArr so it doesn't give us the same character for each iteration
             pwArr.push(functArr[trueBoxes[0]])
-            console.log(pwArr);
         }
 
     // IF 2 BOXES ARE CHECKED
@@ -172,13 +152,13 @@ function generatePassword(e){
     }
 
     // OUTPUTTING PASSWORD TO PAGE
-    finalPassword = pwArr.join(""); // Converting password array (pwArr) into a string
-    document.querySelector("#finalPassword").value = finalPassword; // Displaying password on page
+    finalPassword = pwArr.join(""); //Converting password array (pwArr) into a string
+    document.querySelector("#finalPassword").value = finalPassword; //Displaying password to page
 
     // ENABLING OPTION TO COPY PASSWORD
     copyButton = document.querySelector("#copyButton");
     copyButton.className = "btn btn-outline-secondary"; //Removing disabled class to make button brighter
-    document.querySelector("#copyButton").setAttribute("title" , "Copy to clipboard"); //Showing tooltip on clipboard button
+    document.querySelector("#copyButton").setAttribute("title" , "Copy to clipboard"); //Showing tooltip for clipboard button
     copyButton.addEventListener("click" , copyPassword);
 
     function copyPassword(e) {
