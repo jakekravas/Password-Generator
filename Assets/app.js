@@ -72,6 +72,7 @@ function generatePassword(e){
                 pwArr.push(functArr[trueBoxes[1]]);
             }
         }
+    // WHEN 3 BOXES ARE CHECKED
     } else if (trueBoxes.length === 3) {
         for (var i = 0; i < passwordLength.value; i++) {
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
@@ -85,10 +86,26 @@ function generatePassword(e){
                 pwArr.push(functArr[trueBoxes[2]]);
             }
         }
+    // WHEN ALL 4 BOXES ARE CHECKED
+    } else {
+        for (var i = 0; i < passwordLength.value; i++) {
+            functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
+            var randFunctSelect = Math.random();
+            console.log(randFunctSelect);
+            if (randFunctSelect <= 0.25) {
+                pwArr.push(functArr[trueBoxes[0]]);
+            } else if (randFunctSelect > 0.25 && randFunctSelect <= 0.5) {
+                pwArr.push(functArr[trueBoxes[1]]);
+            } else if (randFunctSelect > 0.5 && randFunctSelect <= 0.75) {
+                pwArr.push(functArr[trueBoxes[2]]);
+            } else {
+                pwArr.push(functArr[trueBoxes[3]]);
+            }
+        }
     }
 
-    finalPassword = pwArr.join("");
-    document.querySelector("#finalPassword").value = finalPassword;
-
+    // OUTPUTTING PASSWORD TO PAGE
+    finalPassword = pwArr.join(""); // Converting password array into a string
+    document.querySelector("#finalPassword").value = finalPassword; // Displaying password on page
     e.preventDefault();
 }
