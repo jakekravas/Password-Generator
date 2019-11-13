@@ -60,10 +60,22 @@ function generatePassword(e){
             pwArr.push(functArr[trueBoxes[0]])
             console.log(pwArr);
         }
+    // WHEN 2 BOXES ARE CHECKED
+    } else if (trueBoxes.length === 2) {
+        for (var i = 0; i < passwordLength.value; i++){
+            functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
+            var randFunctSelect = Math.random();
+            console.log(randFunctSelect);
+            if (randFunctSelect <= 0.5) {
+                pwArr.push(functArr[trueBoxes[0]]);
+            } else {
+                pwArr.push(functArr[trueBoxes[1]]);
+            }
+        }
     }
 
     finalPassword = pwArr.join("");
-    document.querySelector("#finalPassword").placeholder = finalPassword;
+    document.querySelector("#finalPassword").value = finalPassword;
 
     e.preventDefault();
 }
