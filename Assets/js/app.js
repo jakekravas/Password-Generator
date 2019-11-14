@@ -46,7 +46,7 @@ function generatePassword(e){
     let pwArr = []; //Array to loop each randomly generated password character into
     let finalPassword; //Will later be a string version of pwArr
     let checkedArr = [lowerChecked.checked , upperChecked.checked , numberChecked.checked , specialChecked.checked]; //Array to log true/false boolean elements into so we know which boxes are checked
-    let trueBoxes = []; //all true elements from checkedArr will be pushed into here with their checkedArr index as their value so we know which boxes to act upon
+    let trueBoxes = []; //All true elements from checkedArr will be pushed into here with their checkedArr index as their value so we know which boxes to act upon
     let functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()]; //Uses values of trueBoxes to know which functions to run
     let noChecksAlert = document.querySelector("#noChecksAlert");
     let copyButton = document.querySelector("#copyButton");
