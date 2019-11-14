@@ -1,5 +1,5 @@
 // GETTING PASSWORD CRITERIA FROM USER
-let passwordLength = document.querySelector("#pwLength"); //Gets access to input tag with ID pwLength
+let desiredPasswordLength = document.querySelector("#pwLength"); //Gets access to input tag with ID pwLength
 let lowerChecked = document.querySelector("#lowerCheck"); //Gets access to input tag with ID lowerCheck
 let upperChecked = document.querySelector("#upperCheck"); //Gets access to input tag with ID upperCheck
 let numberChecked = document.querySelector("#numberCheck"); //Gets access to input tag with ID numberCheck
@@ -29,10 +29,10 @@ function getRandomSpecial(){ //Randomly generates and returns a special characte
         }
         return arr;
     }
-    specialLoop(33 , 47 , specialArr); //Gets special characters from char numbers 33-47
-    specialLoop(58 , 64 , specialArr); //Gets special characters from char numbers 58-64
-    specialLoop(91 , 96 , specialArr); //Gets special characters from char numbers 91-96
-    specialLoop(123 , 126 , specialArr); //Gets special characters from char numbers 123-126
+    specialLoop(33, 47, specialArr); //Gets special characters from char numbers 33-47
+    specialLoop(58, 64, specialArr); //Gets special characters from char numbers 58-64
+    specialLoop(91, 96, specialArr); //Gets special characters from char numbers 91-96
+    specialLoop(123, 126, specialArr); //Gets special characters from char numbers 123-126
 
     let randSpecial = specialArr[Math.floor(Math.random() * specialArr.length)]; //Randomly selects an element from specialArr
     return randSpecial;
@@ -64,7 +64,7 @@ function generatePassword(e){
     function twoBoxesChecked(){
         var firstFunctCount = 0; //Number of times first function has ran
         var secondFunctCount = 0; //Number of times second function has ran
-        for (var i = 0; i < passwordLength.value; i++){
+        for (var i = 0; i < desiredPasswordLength.value; i++){
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()]; //Redeclaring functArr so it doesn't give us the same character each iteration
             var randFunctSelect = Math.random(); //Random number between 0 and 1
             if (randFunctSelect <= 0.5) { 
@@ -86,7 +86,7 @@ function generatePassword(e){
         var firstFunctCount = 0; //Number of times first function has ran
         var secondFunctCount = 0; //Number of times second function has ran
         var thirdFunctCount = 0; //Number of times third function has ran
-        for (var i = 0; i < passwordLength.value; i++){
+        for (var i = 0; i < desiredPasswordLength.value; i++){
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
             var randFunctSelect = Math.random();
             if (randFunctSelect <= 0.33333) {
@@ -112,7 +112,7 @@ function generatePassword(e){
         var secondFunctCount = 0; //Number of times second function has ran
         var thirdFunctCount = 0; //Number of times third function has ran
         var fourthFunctCount = 0; //Number of times fourth function has ran
-        for (var i = 0; i < passwordLength.value; i++){
+        for (var i = 0; i < desiredPasswordLength.value; i++){
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()];
             var randFunctSelect = Math.random();
             if (randFunctSelect <= 0.25) {
@@ -149,7 +149,7 @@ function generatePassword(e){
 
     // IF 1 BOX IS CHECKED
     if (trueBoxes.length === 1) {
-        for (var i = 0; i < passwordLength.value; i++){
+        for (var i = 0; i < desiredPasswordLength.value; i++){
             functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()]; // Redeclaring functArr so it doesn't give us the same character for each iteration
             pwArr.push(functArr[trueBoxes[0]])
         }
