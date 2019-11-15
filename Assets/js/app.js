@@ -151,7 +151,7 @@ function generatePassword(e){
         noChecksAlert.className = "alert alert-danger text-center py-1"; //Shows alert to user
         copyButton.className = "btn btn-outline-secondary disabled"; //Disables copy button
         copyButton.setAttribute("title" , ""); //Hides tooltip for copy button
-        setTimeout(clearError, 4000); //Calls function to clear error after 3 seconds
+        setTimeout(clearAlert, 4000); //Calls function to clear alert after 3 seconds
     } else {
         noChecksAlert.className = "d-none"; //Sets alert to display:none
         copyButton.className = "btn btn-outline-secondary"; //Enables copy button
@@ -195,7 +195,7 @@ function generatePassword(e){
     e.preventDefault(); //Prevents page refresh when Generate button is clicked
 }
 
-// Clears error after 4 seconds
-function clearError(){
+// Clears alert after 4 seconds
+function clearAlert(){
     noChecksAlert.className = "d-none";
 }
