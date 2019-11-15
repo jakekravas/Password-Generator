@@ -9,9 +9,9 @@ let copyButton = document.querySelector("#copyButton"); //Accesses button tag wi
 
 function checkDesiredPwLength(){
     if (desiredPasswordLength.value < 8 || desiredPasswordLength.value > 128){
-        copyButton.className = "btn btn-outline-secondary disabled"; //Sets button to disabled
+        copyButton.className = "btn btn-outline-secondary disabled"; //Disables copy button
         copyButton.setAttribute("title" , ""); //Hides tooltip for copy button
-        finalPassword.value = ""; //Hides previous password if user attempts to make new one with invalid length in order to avoid confusion
+        finalPassword.value = ""; //Removes any previous password to avoid confusion
         checkDesiredPwLength();
     }
 }
@@ -53,7 +53,7 @@ function getRandomSpecial(){ //Randomly generates and returns a special characte
 document.querySelector("#btn-generate").addEventListener("click" , generatePassword); //Setting up event listener for when Generate button is clicked
 
 function generatePassword(e){
-    
+
     checkDesiredPwLength();
     let pwArr = []; //Array to loop each randomly generated password character into
     let finalPassword; //Will later be a string version of pwArr
@@ -149,7 +149,7 @@ function generatePassword(e){
     // IF NO BOXES ARE CHECKED
     if (trueBoxes.length === 0) {
         noChecksAlert.className = "alert alert-danger text-center py-1"; //Shows alert to user
-        copyButton.className = "btn btn-outline-secondary disabled"; //Sets button to disabled
+        copyButton.className = "btn btn-outline-secondary disabled"; //Disables copy button
         copyButton.setAttribute("title" , ""); //Hides tooltip for copy button
     } else {
         noChecksAlert.className = "d-none"; //Sets alert to display:none
