@@ -33,20 +33,8 @@ function getRandomNumber(){ //Randomly generates and returns a numeric character
 }
 
 function getRandomSpecial(){ //Randomly generates and returns a special character
-    specialArr = []; //Array to loop special characters into
-    function specialLoop(startPoint , endPoint , arr){
-        for (var i = startPoint; i <= endPoint; i++){
-            arr.push(String.fromCharCode(i)) //Appends character into array
-        }
-        return arr;
-    }
-    specialLoop(33, 47, specialArr); //Gets special characters from char numbers 33-47
-    specialLoop(58, 64, specialArr); //Gets special characters from char numbers 58-64
-    specialLoop(91, 96, specialArr); //Gets special characters from char numbers 91-96
-    specialLoop(123, 126, specialArr); //Gets special characters from char numbers 123-126
-
-    let randSpecial = specialArr[Math.floor(Math.random() * specialArr.length)]; //Randomly selects an element from specialArr
-    return randSpecial;
+    let specialArr = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", String.fromCharCode(92), "]", "^", "_", "`", "{", "|", "}", "~"];
+    return specialArr[Math.floor(Math.random() * specialArr.length)];//Randomly selects an element from specialArr
 }
 
 // SETTING UP EVENT LISTENER FOR GENERATE BUTTON
