@@ -2,7 +2,10 @@ body {
     /* background: -webkit-linear-gradient(left, #6a11cb, #2575fc); */
     /* background: -webkit-linear-gradient(left, #6a11cb, #113f8f); */
     /* background: -webkit-linear-gradient(left, #6a11cb, #164eaf); */
-    background: -webkit-linear-gradient(left, #7511e0, #1463ec);
+    /* background: -webkit-linear-gradient(left, #7511e0, #1463ec); */
+    /* background: -webkit-linear-gradient(left, rgb(69, 28, 104), rgb(91, 9, 255)); */
+    background: -webkit-linear-gradient(left, rgb(69, 28, 104), rgb(51, 19, 168));
+    /* background: -webkit-linear-gradient(left, #4b111b, #3b105a); */
 }
 
 h2 {

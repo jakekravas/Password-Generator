@@ -54,7 +54,7 @@ document.querySelector("#btn-generate").addEventListener("click" , generatePassw
 
 function generatePassword(e){
 
-    checkDesiredPwLength();
+    // checkDesiredPwLength();
     let pwArr = []; //Array to loop each randomly generated password character into
     let finalPassword; //Will later be a string version of pwArr
     let checkedArr = [lowerChecked.checked , upperChecked.checked , numberChecked.checked , specialChecked.checked]; //Array to log true/false boolean elements into so we know which boxes are checked
@@ -189,6 +189,7 @@ function generatePassword(e){
         document.execCommand("Copy"); //Copies password text to clipboard
         e.preventDefault(); //Prevents page refresh when copy button is clicked
     }
+    checkDesiredPwLength();
 
     e.preventDefault(); //Prevents page refresh when Generate button is clicked
 };
