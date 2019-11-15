@@ -50,9 +50,9 @@ function getRandomSpecial(){ //Randomly generates and returns a special characte
 }
 
 // SETTING UP EVENT LISTENER FOR GENERATE BUTTON
-document.querySelector("#btn-generate").addEventListener("click" , generatePassword); //Setting up event listener for when Generate button is clicked
-
-function generatePassword(e){
+// document.querySelector("#btn-generate").addEventListener("click" , generatePassword); //Setting up event listener for when Generate button is clicked
+// function generatePassword(e){
+generatePassword(){
     
     checkDesiredPwLength();
     let pwArr = []; //Array to loop each randomly generated password character into
@@ -178,17 +178,17 @@ function generatePassword(e){
     }
 
     // OUTPUTTING PASSWORD TO PAGE
-    finalPassword = pwArr.join(""); //Converts password array (pwArr) into a string
-    document.querySelector("#finalPassword").value = finalPassword; //Displays password to page
+    // finalPassword = pwArr.join(""); //Converts password array (pwArr) into a string
+    // document.querySelector("#finalPassword").value = finalPassword; //Displays password to page
 
     // ENABLING OPTION TO COPY PASSWORD
-    copyButton.addEventListener("click" , copyPassword); //Sets up event listener for when copy (clipboard icon) button is clicked
+    // copyButton.addEventListener("click" , copyPassword); //Sets up event listener for when copy (clipboard icon) button is clicked
 
-    function copyPassword(e) {
-        document.querySelector("#finalPassword").select(); //Selects password text
-        document.execCommand("Copy"); //Copies password text to clipboard
-        e.preventDefault(); //Prevents page refresh when copy button is clicked
-    }
+    // function copyPassword(e) {
+        // document.querySelector("#finalPassword").select(); //Selects password text
+        // document.execCommand("Copy"); //Copies password text to clipboard
+        // e.preventDefault(); //Prevents page refresh when copy button is clicked
+    // }
 
-    e.preventDefault(); //Prevents page refresh when Generate button is clicked
+    // e.preventDefault(); //Prevents page refresh when Generate button is clicked
 };
