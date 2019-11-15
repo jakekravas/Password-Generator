@@ -1,9 +1,20 @@
 // GETTING PASSWORD CRITERIA FROM USER
-let desiredPasswordLength = document.querySelector("#pwLength"); //Gets access to input tag with ID pwLength
-let lowerChecked = document.querySelector("#lowerCheck"); //Gets access to input tag with ID lowerCheck
-let upperChecked = document.querySelector("#upperCheck"); //Gets access to input tag with ID upperCheck
-let numberChecked = document.querySelector("#numberCheck"); //Gets access to input tag with ID numberCheck
-let specialChecked = document.querySelector("#specialCheck"); //Gets access to input tag with ID specialCheck
+let desiredPasswordLength = document.querySelector("#pwLength"); //Accesses input tag with ID pwLength
+let lowerChecked = document.querySelector("#lowerCheck"); //Accesses input tag with ID lowerCheck
+let upperChecked = document.querySelector("#upperCheck"); //Accesses input tag with ID upperCheck
+let numberChecked = document.querySelector("#numberCheck"); //Accesses input tag with ID numberCheck
+let specialChecked = document.querySelector("#specialCheck"); //Accesses input tag with ID specialCheck
+let noChecksAlert = document.querySelector("#noChecksAlert"); //Accesses div tag with ID noChecksAlert
+let copyButton = document.querySelector("#copyButton"); //Accesses button tag with ID copyButton
+
+function checkDesiredPwLength(){
+    if (desiredPasswordLength.value < 8 || desiredPasswordLength.value > 128){
+        copyButton.className = "btn btn-outline-secondary disabled"; //Sets button to disabled
+        copyButton.setAttribute("title" , ""); //Hides tooltip for copy button
+        finalPassword.value = ""; //Hides previous password if user attempts to make new one with invalid length to avoid confusion
+        checkDesiredPwLength();
+    }
+}
 
 // SETTING UP FUNCTIONS TO RANDOMLY GENERATE CHARACTER FOR EACH PIECE OF CRITERIA
 function getRandomLower(){ //Randomly generates and returns a lowercase character
@@ -43,13 +54,12 @@ document.querySelector("#btn-generate").addEventListener("click" , generatePassw
 
 function generatePassword(e){
     
+    checkDesiredPwLength();
     let pwArr = []; //Array to loop each randomly generated password character into
     let finalPassword; //Will later be a string version of pwArr
     let checkedArr = [lowerChecked.checked , upperChecked.checked , numberChecked.checked , specialChecked.checked]; //Array to log true/false boolean elements into so we know which boxes are checked
     let trueBoxes = []; //All true elements from checkedArr will be pushed into here with their checkedArr index as their value so we know which boxes to act upon
     let functArr = [getRandomLower() , getRandomUpper() , getRandomNumber() , getRandomSpecial()]; //Uses values of trueBoxes to know which functions to run
-    let noChecksAlert = document.querySelector("#noChecksAlert");
-    let copyButton = document.querySelector("#copyButton");
 
     // GETTING INDEXES OF CHECKED BOXES
     for (i = 0; i < checkedArr.length; i++){
