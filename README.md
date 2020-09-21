@@ -4,5 +4,4 @@ My main goal for this application was to create a password generator that takes 
 
 I used HTML, CSS, Bootstrap, and JavaScript heavily throughout this process. Although quite simple and minimalistic, this feels like my first true web application and it definitely pushed me to my limits as a new developer. I spent many hours ensuring that this password generator is responsive, polished, easy to use, and always meets the standard of the user.
 
-![Screenshot 1](Assets/images/PasswordGenerator.png)
 ![Screenshot 2](Assets/images/PasswordGeneratorExample.png)
